@@ -48,10 +48,26 @@ const subways = [
     { name: 1, color: "red" },
     { name: 2, color: "red" },
     { name: 3, color: "red" },
+    { name: 4, color: "green" },
+    { name: 5, color: "green" },
+    { name: 6, color: "green" },
+    { name: 7, color: "purple" },
+    { name: "A", color: "blue" },
+    { name: "C", color: "blue" },
+    { name: "E", color: "blue" },
+    { name: "G", color: "lime" },
+    { name: "B", color: "orange" },
+    { name: "D", color: "orange" },
+    { name: "F", color: "orange" },
+    { name: "M", color: "orange" },
+    { name: "J", color: "brown" },
+    { name: "Z", color: "brown" },
+    { name: "L", color: "gray" },
+    { name: "S", color: "gray" },
     { name: "N", color: "yellow" },
     { name: "R", color: "yellow" },
     { name: "Q", color: "yellow" },
-    { name: "D", color: "orange" },
+    
 ];
 
 function renderHomePage() {
@@ -79,6 +95,13 @@ function renderSubwayPage(trainLine) {
     getStationsForTrainLine(trainLine)
         .then(a => {
             const containerEle = document.createElement("div");
+
+            const backEle = document.createElement("a");
+            backEle.setAttribute("href", `#home`);
+            const backText = document.createTextNode("back");
+            backEle.appendChild(backText);
+            containerEle.appendChild(backEle);
+
             a.forEach(b => {
                 const ulEle = document.createElement("ul");
 
@@ -116,8 +139,13 @@ function renderPage(page) {
 function renderRealTime(trainLine, station) {
     getRealTimeForStation(trainLine, station)
         .then(a => {
-            
             const containerEle = document.createElement("div");
+
+            const backEle = document.createElement("a");
+            backEle.setAttribute("href", `#subway/${trainLine}`);
+            const backText = document.createTextNode("back");
+            backEle.appendChild(backText);
+            containerEle.appendChild(backEle);
 
             const pEle = document.createElement("p");
             const date = a.lastUpdatedTime;
