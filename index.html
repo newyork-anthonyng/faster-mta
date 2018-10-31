@@ -6,7 +6,11 @@
             <li><a href="#subway">Subway</a></li>
             <li><a href="#realtime">Realtime</a></li>
         </ul>
+
+        <object class="js-subway_map" width="500" height="375" type="application/pdf"></object>
+
         <div class="js-main"></div>
+
         <script src="./mta.js"></script>
         <script>
             if ("serviceWorker" in navigator) {
@@ -20,6 +24,19 @@
                         })
                 })
             }
+        </script>
+        <script>
+            // Need to make fetch call
+            // <object> calls don't go through serviceworker cache
+            // https://www.chromestatus.com/feature/6313531834105856
+            // https://w3c.github.io/ServiceWorker/#implementer-concerns
+            fetch("./subway_map.pdf")
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const objEle = document.querySelector(".js-subway_map");
+                    objEle.setAttribute("data", url);
+                })
         </script>
     </body>
 </html>

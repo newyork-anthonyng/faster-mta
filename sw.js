@@ -2,7 +2,8 @@ const CACHE_NAME = "hbfs-mta-cache-v1";
 const urlsToCache = [
    "/",
    "/index.html",
-   "/mta.js"
+   "/mta.js",
+   "/subway_map.pdf"
 ];
 
 self.addEventListener("install", event => {
