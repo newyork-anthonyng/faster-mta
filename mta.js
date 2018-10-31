@@ -21,6 +21,7 @@ function handleHashChange() {
     const hash = location.hash.slice(1)
     const routes = hash.split("/");
 
+    // TODO: Refactor this to use Open/Closed principle
     switch(routes[0]) {
         case "subway":
             if (routes[1]) {
@@ -37,12 +38,17 @@ function handleHashChange() {
             } else {
                 window.history.pushState({}, "", "#home");
             }
+            break;
+        case "subway_map":
+            renderSubwayMap();
+            break;
         case "home":
         default:
             renderHomePage();
             break;
     }
 }
+
 
 const subways = [
     { name: 1, color: "red" },
@@ -176,6 +182,31 @@ function renderRealTime(trainLine, station) {
 
             renderPage(containerEle);
         });
+}
+
+function renderSubwayMap() {
+    getSubwayMapUrl()
+        .then(subwayMapUrl => {
+            const objEle = document.createElement("object");
+            objEle.setAttribute("width", 500);
+            objEle.setAttribute("height", 375);
+            objEle.setAttribute("type", "application/pdf");
+            objEle.setAttribute("data", subwayMapUrl);
+
+            renderPage(objEle);
+        });
+}
+
+function getSubwayMapUrl() {
+    // Need to make fetch call
+    // <object> calls don't go through serviceworker cache
+    // https://www.chromestatus.com/feature/6313531834105856
+    // https://w3c.github.io/ServiceWorker/#implementer-concerns
+    return fetch("./subway_map.pdf")
+        .then(response => response.blob())
+        .then(blob => {
+            return URL.createObjectURL(blob);
+        })
 }
 
 handleHashChange();
