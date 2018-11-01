@@ -1,10 +1,12 @@
 <!doctype html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
     <body>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#subway">Subway</a></li>
-            <li><a href="#realtime">Realtime</a></li>
             <li><a href="#subway_map">Subway Map (available offline)</a></li>
         </ul>
 
@@ -23,19 +25,6 @@
                         })
                 })
             }
-        </script>
-        <script>
-            // Need to make fetch call
-            // <object> calls don't go through serviceworker cache
-            // https://www.chromestatus.com/feature/6313531834105856
-            // https://w3c.github.io/ServiceWorker/#implementer-concerns
-            fetch("./subway_map.pdf")
-                .then(response => response.blob())
-                .then(blob => {
-                    const url = URL.createObjectURL(blob);
-                    const objEle = document.querySelector(".js-subway_map");
-                    objEle.setAttribute("data", url);
-                })
         </script>
     </body>
 </html>
