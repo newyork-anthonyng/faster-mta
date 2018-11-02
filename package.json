@@ -1,0 +1,27 @@
+{
+  "name": "faster-mta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mta.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.5"
+  },
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newyork-anthonyng/faster-mta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/newyork-anthonyng/faster-mta/issues"
+  },
+  "homepage": "https://github.com/newyork-anthonyng/faster-mta#readme"
+}
