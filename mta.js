@@ -107,7 +107,18 @@ function removeChildrenFromNode(node) {
     }
 }
 
+function renderLoadingContainer() {
+    const containerEle = document.createElement("div");
+    const pEle = document.createElement("p");
+    const textNode = document.createTextNode("Loading...");
+    pEle.appendChild(textNode);
+    containerEle.appendChild(pEle);
+    renderPage(containerEle);
+}
+
 function renderSubwayPage(trainLine) {
+    renderLoadingContainer();
+
     getStationsForTrainLine(trainLine)
         .then(a => {
             const containerEle = document.createElement("div");
@@ -153,6 +164,8 @@ function renderPage(page) {
 }
 
 function renderRealTimePage(trainLine, station) {
+    renderLoadingContainer();
+
     // If cached data is available, show that first while fetching the latest data
     getCachedRealTimeForStation(trainLine, station)
         .then(response => {
