@@ -3,16 +3,44 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .menu-open {
+                transform: translateX(300px);
+            }
+
+            .menu {
+                position: absolute;
+                left: 0;
+                transform: translateX(-300px);
+            }
+        </style>
     </head>
     <body>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#subway_map">Subway Map (available offline)</a></li>
-        </ul>
+        <nav class="menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#subway_map">Subway Map (available offline)</a></li>
+            </ul>
+        </nav>
+
+        <header>
+            <button class="js-hamburger">🍔</button>
+            <h1>MTA Subway Time</h1>
+        </header>
 
         <div class="js-main"></div>
 
         <script src="./mta.js"></script>
+        <script>
+            const hamburgerButton = document.querySelector(".js-hamburger");
+            hamburgerButton.addEventListener("click", e => {
+                document.body.classList.toggle("menu-open");
+            });
+        </script>
         <script>
             if ("serviceWorker" in navigator) {
                 window.addEventListener("load", () => {
