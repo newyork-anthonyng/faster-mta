@@ -3,7 +3,7 @@ const CACHE_NAME = "hbfs-mta-cache-v1";
 const urlsToCache = [
    "/",
    "/index.html",
-   "/mta.js",
+   "/mta.bundle.js",
    "/subway_map.pdf"
 ];
 
