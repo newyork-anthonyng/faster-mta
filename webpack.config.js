@@ -5,7 +5,8 @@ const WorkboxPlugin = require("workbox-webpack-plugin");
 
 const filesToCopy = [
     "./index.html",
-    "./subway_map.pdf"
+    "./subway_map.pdf",
+    { from: "./images", to: "images/" }
 ];
 
 const SUBWAY_STATION_URL = "http://traintimelb-367443097.us-east-1.elb.amazonaws.com/getStationsByLine";
