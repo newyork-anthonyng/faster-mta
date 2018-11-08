@@ -3,21 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "mta.js",
-  "dependencies": {
-    "express": "^4.16.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.6.0",
-    "nodemon": "^1.18.5",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   },
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js",
-    "build": "webpack",
-    "build.watch": "webpack --watch"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
