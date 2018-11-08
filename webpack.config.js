@@ -18,7 +18,13 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "mta.bundle.js"
+        filename: "[name].js"
+    },
+
+    optimization: {
+        runtimeChunk: {
+            name: "manifest"
+        }
     },
 
     plugins: [
