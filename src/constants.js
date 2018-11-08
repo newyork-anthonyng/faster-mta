@@ -1,5 +1,5 @@
-const STATIONS_FOR_TRAIN_LINE_URL = `https://traintimelb-367443097.us-east-1.elb.amazonaws.com/getStationsByLine`;
-const REAL_TIME_FOR_STATION = `https://traintimelb-367443097.us-east-1.elb.amazonaws.com/getTime`;
+const STATIONS_FOR_TRAIN_LINE_URL = `http://traintimelb-367443097.us-east-1.elb.amazonaws.com/getStationsByLine`;
+const REAL_TIME_FOR_STATION = `http://traintimelb-367443097.us-east-1.elb.amazonaws.com/getTime`;
 
 const SUBWAYS = [
     { name: 1, color: "red" },
