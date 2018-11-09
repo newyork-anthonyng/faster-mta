@@ -2,10 +2,7 @@ import { STATIONS_FOR_TRAIN_LINE_URL, REAL_TIME_FOR_STATION } from "./constants"
 
 function getStationsForTrainLine(trainLine) {
     return fetch(`${STATIONS_FOR_TRAIN_LINE_URL}/${trainLine}`)
-        .then(a => a.text())
-        .then(a => {
-            return JSON.parse(JSON.parse(a));
-        });
+        .then(a => a.json())
 }
 
 function getRealTimeForStation(trainLine, station) {
