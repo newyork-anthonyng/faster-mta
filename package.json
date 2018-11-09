@@ -14,7 +14,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy.hosting": "npm run build && firebase deploy --only hosting",
+    "deploy.functions": "firebase deploy --only functions"
   },
   "repository": {
     "type": "git",
