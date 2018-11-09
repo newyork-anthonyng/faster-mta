@@ -1,5 +1,5 @@
-const STATIONS_FOR_TRAIN_LINE_URL = `http://traintimelb-367443097.us-east-1.elb.amazonaws.com/getStationsByLine`;
-const REAL_TIME_FOR_STATION = `http://traintimelb-367443097.us-east-1.elb.amazonaws.com/getTime`;
+const STATIONS_FOR_TRAIN_LINE_URL = "https://us-central1-faster-mta.cloudfunctions.net/mta/stations";
+const REAL_TIME_FOR_STATION = "https://us-central1-faster-mta.cloudfunctions.net/mta/realTime";
 
 const SUBWAYS = [
     { name: 1, color: "red" },
@@ -26,7 +26,8 @@ const SUBWAYS = [
     { name: "Q", color: "yellow" }
 ];
 
-export { 
+// These exports are used in webpack.config.js
+module.exports = {
     STATIONS_FOR_TRAIN_LINE_URL,
     REAL_TIME_FOR_STATION,
     SUBWAYS

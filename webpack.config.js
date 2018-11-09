@@ -2,15 +2,13 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const CleanPlugin = require("clean-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
+const { STATIONS_FOR_TRAIN_LINE_URL, REAL_TIME_FOR_STATION } = require("./src/constants");
 
 const filesToCopy = [
     "./index.html",
     "./subway_map.pdf",
     { from: "./images", to: "images/" }
 ];
-
-const SUBWAY_STATION_URL = "http://traintimelb-367443097.us-east-1.elb.amazonaws.com/getStationsByLine";
-const REAL_TIME_URL = "http://traintimelb-367443097.us-east-1.elb.amazonaws.com/getTime";
 
 const DIST_DIRECTORY = "dist";
 
@@ -37,11 +35,11 @@ module.exports = {
             skipWaiting: true,
             runtimeCaching: [
                 {
-                    urlPattern: new RegExp(REAL_TIME_URL),
+                    urlPattern: new RegExp(REAL_TIME_FOR_STATION),
                     handler: "staleWhileRevalidate"
                 },
                 {
-                    urlPattern: new RegExp(SUBWAY_STATION_URL),
+                    urlPattern: new RegExp(STATIONS_FOR_TRAIN_LINE_URL),
                     handler: "staleWhileRevalidate"
                 }
             ]
