@@ -2,10 +2,10 @@ const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const CleanPlugin = require("clean-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
+const HtmlPlugin = require("html-webpack-plugin");
 const { STATIONS_FOR_TRAIN_LINE_URL, REAL_TIME_FOR_STATION } = require("./src/constants");
 
 const filesToCopy = [
-    "./index.html",
     "./subway_map.pdf",
     "./manifest.json",
     { from: "./images", to: "images/" }
@@ -20,7 +20,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].js"
+        filename: "[name].[contenthash].js"
     },
 
     optimization: {
@@ -32,6 +32,9 @@ module.exports = {
     plugins: [
         new CleanPlugin([DIST_DIRECTORY]),
         new CopyPlugin(filesToCopy),
+        new HtmlPlugin({
+            template: path.resolve(__dirname, "./index.html")
+        }),
         new WorkboxPlugin.GenerateSW({
             swDest: "sw.js",
             clientsClaim: true,
