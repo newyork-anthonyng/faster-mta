@@ -7,18 +7,44 @@
         <meta name="theme-color" content="#223266"/>
         <link rel="manifest" href="./manifest.json">
         <style>
-            body {
-                transition: transform 0.3s ease-in-out;
+            * {
+                box-sizing: border-box;
             }
 
-            .menu-open {
-                transform: translateX(300px);
+            html, body {
+                height: 100%;
+                width: 100%;
+            }
+
+            body {
+                transition: transform 0.3s ease-in-out;
+                font-family: sans-serif;
             }
 
             .menu {
                 position: absolute;
                 left: 0;
-                transform: translateX(-300px);
+                transform: translateX(-100%);
+                height: 100%;
+                width: 90%;
+                font-size: 20px;
+            }
+
+            .menu-open {
+                transform: translateX(90%);
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                padding: 16px;
+            }
+
+            .js-main {
+                width: 100%;
             }
         </style>
     </head>
