@@ -8,6 +8,7 @@ const { STATIONS_FOR_TRAIN_LINE_URL, REAL_TIME_FOR_STATION } = require("./src/co
 const filesToCopy = [
     "./subway_map.pdf",
     "./manifest.json",
+    "./robots.txt",
     { from: "./images", to: "images/" }
 ];
 
