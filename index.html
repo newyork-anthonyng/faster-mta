@@ -67,8 +67,6 @@
 
         <div class="js-main"></div>
 
-        <script src="./manifest.js"></script>
-        <script src="./main.js"></script>
         <script>
             const hamburgerButton = document.querySelector(".js-hamburger");
             hamburgerButton.addEventListener("click", e => {
@@ -80,7 +78,7 @@
                 window.addEventListener("load", () => {
                     navigator.serviceWorker.register("./sw.js")
                         .then(registration => {
-                            console.log(`ServiceWorker registration successful on ${registration.scope}`);
+                            console.log("ServiceWorker registration successful");
                         })
                         .catch(err => {
                             console.error(err);
