@@ -10,6 +10,15 @@ function renderPage(page) {
     main.appendChild(page);
 }
 
+function createElementWithText(elementType, text) {
+    const el = document.createElement(elementType);
+    const textNode = document.createTextNode(text);
+    el.appendChild(textNode);
+
+    return el;
+}
+
 export {
-    renderPage
+    renderPage,
+    createElementWithText
 };
