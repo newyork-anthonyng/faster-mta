@@ -15,8 +15,6 @@ const filesToCopy = [
 const DIST_DIRECTORY = "dist";
 
 module.exports = {
-    mode: "development",
-
     entry: path.resolve(__dirname, "src/index.js"),
 
     output: {
