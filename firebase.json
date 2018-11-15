@@ -12,12 +12,28 @@
         "destination": "/index.html"
       }
     ],
-    "headers": [{
-      "source": "**/*",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=2628000"
-      }]
-    }]
+    "headers": [
+      {
+        "source": "**/*.@(js|png|json|txt)",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=438000"
+        }]
+      },
+      {
+        "source": "**/sw.js",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=86400"
+        }]
+      },
+      {
+        "source": "**/*.html",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=86400"
+        }]
+      }
+    ]
   }
 }
