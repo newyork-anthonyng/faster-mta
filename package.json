@@ -5,6 +5,7 @@
   "main": "mta.js",
   "dependencies": {},
   "devDependencies": {
+    "bundlesize": "^0.17.0",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.6.0",
     "firebase-tools": "^6.1.0",
@@ -19,7 +20,8 @@
     "build": "webpack",
     "deploy.hosting": "npm run build && firebase deploy --only hosting",
     "deploy.functions": "firebase deploy --only functions",
-    "deploy": "npm run deploy.hosting & npm run deploy.functions"
+    "deploy": "npm run deploy.hosting & npm run deploy.functions",
+    "validate": "npm run build && bundlesize"
   },
   "repository": {
     "type": "git",
@@ -31,5 +33,11 @@
   "bugs": {
     "url": "https://github.com/newyork-anthonyng/faster-mta/issues"
   },
-  "homepage": "https://github.com/newyork-anthonyng/faster-mta#readme"
+  "homepage": "https://github.com/newyork-anthonyng/faster-mta#readme",
+  "bundlesize": [
+    {
+      "path": "./dist/**.@(js|html)",
+      "maxSize": "3 kB"
+    }
+  ]
 }
