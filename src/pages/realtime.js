@@ -5,7 +5,6 @@ import {
   getCachedRealTimeForStation,
   getRealTimeForStation
 } from "../fetchInfo";
-import { create } from "domain";
 
 function renderRealTimePage(trainLine, station) {
   renderLoadingContainer();
