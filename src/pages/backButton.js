@@ -1,11 +1,11 @@
 function renderBackButton(href) {
-    const backEle = document.createElement("a");
-    backEle.setAttribute("href", href);
+  const backEle = document.createElement("a");
+  backEle.setAttribute("href", href);
 
-    const backText = document.createTextNode("back");
-    backEle.appendChild(backText);
+  const backText = document.createTextNode("back");
+  backEle.appendChild(backText);
 
-    return backEle;
+  return backEle;
 }
 
 export default renderBackButton;
