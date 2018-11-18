@@ -5,6 +5,7 @@
   "main": "mta.js",
   "dependencies": {},
   "devDependencies": {
+    "an-scripts": "^1.3.0",
     "bundlesize": "^0.17.0",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.6.0",
@@ -17,11 +18,12 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "lint": "an-scripts lint",
     "build": "webpack",
     "deploy.hosting": "npm run build && firebase deploy --only hosting",
     "deploy.functions": "firebase deploy --only functions",
     "deploy": "npm run deploy.hosting & npm run deploy.functions",
-    "validate": "npm run build && bundlesize"
+    "validate": "npm run lint && npm run build && bundlesize"
   },
   "repository": {
     "type": "git",
