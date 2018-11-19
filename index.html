@@ -35,10 +35,15 @@
                 height: 100%;
                 width: 90%;
                 font-size: 20px;
+                display: none;
             }
 
             .menu-open {
                 transform: translateX(90%);
+            }
+
+            .menu-show {
+                display: block;
             }
 
             ul {
@@ -56,7 +61,7 @@
         </style>
     </head>
     <body>
-        <nav class="menu">
+        <nav class="menu js-menu">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#subway_map">Subway Map (available offline)</a></li>
@@ -72,9 +77,41 @@
 
         <script>
             const hamburgerButton = document.querySelector(".js-hamburger");
+            const menu = document.querySelector(".menu")
+            const menuLinks = menu.querySelectorAll("a");
+            const firstEle = menuLinks[0];
+            const lastEle = menuLinks[menuLinks.length - 1];
+            const TAB_KEY = 9;
+            const ESCAPE_KEY = 27;
+
             hamburgerButton.addEventListener("click", e => {
                 document.body.classList.toggle("menu-open");
+                menu.classList.toggle("menu-show");
+                firstEle.focus()
             });
+            menu.addEventListener("keydown", trapTabKey)
+
+            function trapTabKey(e){
+              if(e.keyCode === TAB_KEY) {
+                if(e.shiftKey) {
+                  if(document.activeElement === firstEle){
+                    e.preventDefault();
+                    lastEle.focus()
+                  }
+                } else {
+                  if(document.activeElement === lastEle){
+                    e.preventDefault();
+                    firstEle.focus()
+                  }
+                }
+              }
+
+              if(e.keyCode === ESCAPE_KEY){
+                document.body.classList.toggle("menu-open");
+                menu.classList.toggle("menu-show");
+                hamburgerButton.focus()
+              }
+            }
         </script>
         <script>
             if ("serviceWorker" in navigator) {
