@@ -1,5 +1,6 @@
 import { SUBWAYS } from "../constants";
 import { renderPage, createElementWithText } from "../utils";
+import { getRecentlyViewedStations } from "../recentlyViewedStations";
 
 const listStyle = "display: flex; flex-wrap: wrap;";
 const listItemStyle = "width: 33%; display: flex; align-items: center;";
@@ -30,7 +31,29 @@ function renderHomePage() {
     ulEle.appendChild(liEle);
   });
 
-  renderPage(ulEle);
+  const containerEle = document.createElement("div");
+
+  const recentlyViewedStations = getRecentlyViewedStations();
+  if (recentlyViewedStations) {
+    const headerEle = createElementWithText("h2", "Recently viewed stations");
+    containerEle.appendChild(headerEle);
+
+    const recentlyViewedUlEle = document.createElement("ul");
+    const parsedRecentlyViewedStations = JSON.parse(recentlyViewedStations);
+    parsedRecentlyViewedStations.forEach(recentlyViewed => {
+      const recentlyViewedEle = createElementWithText("a", recentlyViewed.stationName);
+      recentlyViewedEle.setAttribute("href", recentlyViewed.hash);
+
+      const recentlyViewedLiEle = document.createElement("li");
+      recentlyViewedLiEle.appendChild(recentlyViewedEle);
+      recentlyViewedUlEle.appendChild(recentlyViewedLiEle);
+    });
+
+    containerEle.appendChild(recentlyViewedUlEle);
+  }
+
+  containerEle.appendChild(ulEle);
+  renderPage(containerEle);
 }
 
 export default renderHomePage;
