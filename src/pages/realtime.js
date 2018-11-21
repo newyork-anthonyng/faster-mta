@@ -5,6 +5,7 @@ import {
   getCachedRealTimeForStation,
   getRealTimeForStation
 } from "../fetchInfo";
+import { saveRecentlyViewedStations } from "../recentlyViewedStations";
 
 function renderRealTimePage(trainLine, station) {
   renderLoadingContainer();
@@ -18,6 +19,9 @@ function renderRealTimePage(trainLine, station) {
 
   getRealTimeForStation(trainLine, station).then(response => {
     updateRealTime({ trainLine, response });
+
+    const { stationName } = response;
+    saveRecentlyViewedStations(stationName, location.hash);
   });
 }
 

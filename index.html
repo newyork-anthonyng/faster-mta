@@ -63,8 +63,25 @@
                 padding: 16px;
             }
 
-            .js-main {
+            .main {
                 width: 100%;
+            }
+
+            .logo-link {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 24px;
+            }
+
+            .hamburger {
+                height: 50px;
+                width: 50px;
             }
         </style>
     </head>
@@ -76,12 +93,12 @@
             </ul>
         </nav>
 
-        <header>
-            <button class="js-hamburger">🍔</button>
-            <h1>MTA Subway Time</h1>
+        <header class="header">
+            <button class="js-hamburger hamburger">🍔</button>
+            <a href="#home" class="logo-link"><h1>MTA Subway Time</h1></a>
         </header>
 
-        <div class="js-main"></div>
+        <div class="js-main main"></div>
 
         <script>
             const hamburgerButton = document.querySelector(".js-hamburger");

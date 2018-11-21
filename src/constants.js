@@ -28,9 +28,12 @@ const SUBWAYS = [
   { name: "Q", color: "#fbdb48" }
 ];
 
+const LOCAL_STORAGE_KEY = "faster-mta-recently-viewed";
+
 // These exports are used in webpack.config.js
 module.exports = {
   STATIONS_FOR_TRAIN_LINE_URL,
   REAL_TIME_FOR_STATION,
-  SUBWAYS
+  SUBWAYS,
+  LOCAL_STORAGE_KEY
 };
