@@ -8,7 +8,11 @@ function pageView(pageName) {
         _pageName = `/${_pageName}`;
     }
 
-    ga('send', 'pageview', _pageName);
+    if (typeof ga !== "undefined") {
+        ga('send', 'pageview', _pageName);
+    } else {
+        console.error("Google Analytics not found");
+    }
 }
 
 export { pageView };
