@@ -30,7 +30,7 @@
             }
 
             body {
-                transition: transform 0.3s ease-in-out;
+                transition: transform 0.15s ease-in-out;
                 font-family: sans-serif;
                 margin: 0;
                 padding: 8px;
@@ -41,13 +41,13 @@
                 left: 0;
                 transform: translateX(-100%);
                 height: 100%;
-                width: 90%;
+                width: 80%;
                 font-size: 20px;
                 display: none;
             }
 
             .menu-open {
-                transform: translateX(90%);
+                transform: translateX(80%);
             }
 
             .menu-show {
@@ -110,11 +110,22 @@
             const ESCAPE_KEY = 27;
 
             hamburgerButton.addEventListener("click", e => {
+                e.preventDefault();
                 document.body.classList.toggle("menu-open");
                 menu.classList.toggle("menu-show");
                 firstEle.focus()
             });
             menu.addEventListener("keydown", trapTabKey)
+
+            document.body.addEventListener("click", e => {
+                if (e.target === hamburgerButton) return;
+
+                const isMenuOpen = document.body.classList.contains("menu-open");
+                if (isMenuOpen) {
+                    document.body.classList.toggle("menu-open");
+                    menu.classList.toggle("menu-show");
+                }
+            });
 
             function trapTabKey(e){
               if(e.keyCode === TAB_KEY) {
