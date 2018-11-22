@@ -17,7 +17,7 @@
     "workbox-webpack-plugin": "^3.6.3"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --mode=development",
     "lint": "an-scripts lint",
     "build": "webpack",
     "deploy.hosting": "npm run build && firebase deploy --only hosting",
