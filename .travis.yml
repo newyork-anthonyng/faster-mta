@@ -9,3 +9,7 @@ node_js: '8'
 script: npm run validate
 branches:
   only: master
+deploy:
+  provider: firebase
+  token:
+    secure: "s/rAbxm+Tv+3Qqd7y1BxgFT1fQEnZV/pO6FiYpObXoeTwKB78R7omSr8WM23fV5CNjreSbx+mmdMzcyJEp/RJ0+o3KB0DkyivNPZg5EllV1ea++PYp6E7ox4CMqB1/uoQPnsuCCISCeHae64Aovb5WGgwQa7f17mOFeB1VYjO0TmxzSDy4b8ejd8dfuaY9Wyket/+7u7wPqr/lb5Se4JW3zyg7jxbCCSfEDCmT3okFlUiml7UUuc8/n5r2SSY85bo1gIm4U4nh9X1xC7uscDo6QxdlBmh2YXwEXacsJ35xRST9Vl/U2HVJ2NHiltJi0NE/hkOa0bN2J+iTJZF6ZXKyGZS+03f0j8ua0zXrgbZmECwCwhrJwa8Q0tPzZo6drIUIEXupE7XoEIyvi+8i2pkap7dzH/DtrSPnz9+Hlyp6XQw/vONUj5C0uX42hYc2H3/04GW/HAbZu8bYcs0qtqf2RvZhtDXZIeisxW0VJPEnNwbXXi2GrooZGXWaw5gTEuJ5ApmItiDdOCT+avnzVXeztPCkr/j8EAXadyYHIqyaR7gm/RWv5bIQpUxkz0G1mJBotkDGSmzLpLk/dbFGXkPjlaQWvX+atHPQXkb/Y++AJWHj+3Lmq2eyemHi0XH0c3Y2CG1fEEdf7IY6DDn9HZXowzdg2u12HWqy/2blmCLtE="
