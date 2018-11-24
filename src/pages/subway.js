@@ -3,7 +3,7 @@ import renderBackButton from "./backButton";
 import { getStationsForTrainLine } from "../fetchInfo";
 import { renderPage, createElementWithText } from "../utils";
 
-const tabStyle = "border: 1px solid gray; font-size: 16px; padding: 12px;";
+const tabStyle = "border: 1px solid gray; font-size: 16px; padding: 12px; cursor: pointer;";
 const activeTabStyle = tabStyle + "border-top: 5px solid blue; border-bottom: 0;";
 
 function renderSubwayPage(trainLine) {
