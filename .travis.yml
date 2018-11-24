@@ -10,4 +10,4 @@ script: npm run validate
 branches:
   only: master
 after_success:
-  - firebase deploy - project faster-mta - token $FIREBASE_TOKEN.
+  - firebase deploy --only hosting --project faster-mta --token $FIREBASE_TOKEN
