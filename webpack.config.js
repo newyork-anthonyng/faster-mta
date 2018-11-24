@@ -41,7 +41,7 @@ module.exports = {
             runtimeCaching: [
                 {
                     urlPattern: new RegExp(REAL_TIME_FOR_STATION),
-                    handler: "staleWhileRevalidate"
+                    handler: "networkFirst"
                 },
                 {
                     urlPattern: new RegExp(STATIONS_FOR_TRAIN_LINE_URL),

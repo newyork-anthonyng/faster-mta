@@ -1,21 +1,11 @@
 import renderLoadingContainer from "./loading";
 import renderBackButton from "./backButton";
 import { renderPage, createElementWithText } from "../utils";
-import {
-  getCachedRealTimeForStation,
-  getRealTimeForStation
-} from "../fetchInfo";
+import { getRealTimeForStation } from "../fetchInfo";
 import { saveRecentlyViewedStations } from "../recentlyViewedStations";
 
 function renderRealTimePage(trainLine, station) {
   renderLoadingContainer();
-
-  // If cached data is available, show that first while fetching the latest data
-  getCachedRealTimeForStation(trainLine, station).then(response => {
-    if (response) {
-      updateRealTime({ trainLine, response });
-    }
-  });
 
   getRealTimeForStation(trainLine, station).then(response => {
     updateRealTime({ trainLine, response });
@@ -26,18 +16,6 @@ function renderRealTimePage(trainLine, station) {
 }
 
 function updateRealTime({ response, trainLine }) {
-  // Don't re-render page with outdated information
-  // This can happen if the API call for new information is faster than the cache opening
-  const renderedTimeEl = document.querySelector(".js-last-updated");
-  if (renderedTimeEl) {
-    const currentTime = new Date(parseInt(`${response.lastUpdatedOn}000`));
-    const renderedTime = new Date(parseInt(renderedTimeEl.dataset.lastUpdated));
-
-    if (renderedTime && currentTime < renderedTime) {
-      return;
-    }
-  }
-
   const containerEle = document.createElement("div");
 
   const backEle = renderBackButton(`#subway/${trainLine}`);

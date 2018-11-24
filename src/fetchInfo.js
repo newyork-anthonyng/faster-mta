@@ -25,19 +25,8 @@ function getSubwayMapUrl() {
     .then(blob => URL.createObjectURL(blob));
 }
 
-function getCachedRealTimeForStation(trainLine, station) {
-  const url = `${REAL_TIME_FOR_STATION}/${trainLine}/${station}`;
-  return caches.match(url).then(response => {
-    if (response) {
-      return response.json();
-    }
-    return Promise.resolve();
-  });
-}
-
 export {
   getStationsForTrainLine,
   getRealTimeForStation,
-  getSubwayMapUrl,
-  getCachedRealTimeForStation
+  getSubwayMapUrl
 };
