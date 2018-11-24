@@ -11,3 +11,5 @@ branches:
   only: master
 after_success:
   - firebase deploy - project faster-mta - token $FIREBASE_TOKEN.
+  on:
+    branch: master
