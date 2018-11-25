@@ -32,7 +32,17 @@ module.exports = {
         new CleanPlugin([DIST_DIRECTORY]),
         new CopyPlugin(filesToCopy),
         new HtmlPlugin({
-            template: path.resolve(__dirname, "./index.html")
+            template: path.resolve(__dirname, "./index.html"),
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+                minifyCSS: true,
+                minifyJS: true
+            }
         }),
         new WorkboxPlugin.GenerateSW({
             swDest: "sw.js",
